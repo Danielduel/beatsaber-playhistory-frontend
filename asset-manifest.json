@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/beatsaber-playhistory-frontend/static/js/main.523632fc.js",
+    "main.js": "/beatsaber-playhistory-frontend/static/js/main.171eaa1d.js",
     "index.html": "/beatsaber-playhistory-frontend/index.html",
-    "main.523632fc.js.map": "/beatsaber-playhistory-frontend/static/js/main.523632fc.js.map"
+    "main.171eaa1d.js.map": "/beatsaber-playhistory-frontend/static/js/main.171eaa1d.js.map"
   },
   "entrypoints": [
-    "static/js/main.523632fc.js"
+    "static/js/main.171eaa1d.js"
   ]
 }
