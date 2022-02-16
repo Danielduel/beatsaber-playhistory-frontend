@@ -105,6 +105,14 @@ const ListingInput = () => {
     </div>
   );
 }
+const asd = async () => {
+  const res = await fetch(`https://beatsaver.com/api/maps/hash/aca2b28b3323f0f195777c3975198a4c22f25115`)
+  const data = await res.json();
+  console.log(data)
+  // .then(data => data.json())
+  // .then(console.log);
+}
+asd();
 
 const BridgeComponent = () => {
   const pseudoUserAuth = React.useMemo(() => ({
@@ -122,8 +130,10 @@ const BridgeComponent = () => {
       headers: {
         "Access-Control-Allow-Origin": "*"
       }
-    })).json();
-    const beatsaverData = await beatsaverDataResponse ?? {id: "none"};
+      }));
+    console.log(beatsaverDataResponse);
+    const beatsaverData = (await beatsaverDataResponse.json()) ?? {id: "none"};
+    console.log(beatsaverData);
     const id = beatsaverData.id as string;
     const coverUrl = beatsaverData?.versions[0]?.coverUrl as string ?? "";
 
