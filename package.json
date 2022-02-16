@@ -1,0 +1,49 @@
+{
+  "name": "react-typescript-styled-for-prototyping",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@types/node": "^16.7.13",
+    "@types/react": "^17.0.20",
+    "@types/react-dom": "^17.0.9",
+    "@types/styled-components": "^5.1.22",
+    "dotenv": "^16.0.0",
+    "http-proxy-middleware": "^2.0.3",
+    "react": "^17.0.2",
+    "react-app-rewired": "^2.2.1",
+    "react-dom": "^17.0.2",
+    "react-scripts": "5.0.0",
+    "styled-components": "^5.3.3",
+    "typescript": "^4.4.2",
+    "web-vitals": "^2.1.0"
+  },
+  "scripts": {
+    "start": "BACKEND_TYPE=remote react-app-rewired start",
+    "local": "BACKEND_TYPE=local react-app-rewired start",
+    "build": "react-scripts build",
+    "test": "echo removed react-scripts test",
+    "eject": "react-scripts eject",
+    "update-template": "update-template https://github.com/Duelsik/react-typescript-styled-for-prototyping" 
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "update-template": "^1.3.1"
+  }
+}
