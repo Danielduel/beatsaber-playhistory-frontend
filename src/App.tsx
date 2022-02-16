@@ -84,7 +84,7 @@ const ListingInput = () => {
         "Content-Type": "application/json"
       }
     })
-  }, []);
+  }, [ pseudoUserAuth, testData ]);
   const clearAll = React.useCallback(() => {
     fetch("/api/history/clearAll", {
       method: "POST",
@@ -93,7 +93,7 @@ const ListingInput = () => {
         "Content-Type": "application/json"
       }
     });
-  }, []);
+  }, [ pseudoUserAuth ]);
 
 
   if (!isEnabled) return null;
@@ -136,7 +136,7 @@ const BridgeComponent = () => {
         "Content-Type": "application/json"
       }
     });
-  }, []);
+  }, [ pseudoUserAuth ]);
 
   BeatSaber.useHTTPStatusWebsocket({
     address: "ws://localhost:6557",
