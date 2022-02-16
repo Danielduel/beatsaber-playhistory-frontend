@@ -50,7 +50,7 @@ const renderHistoryItem = ({mapName, coverUrl, mapHash, bsrCode}: HistoryItem) =
 }
 
 const Listing = () => {
-  const {isLoading, error, data} = useQuery('playerData', () =>
+  const {data} = useQuery('playerData', () =>
     fetch('/api/history/test/list').then(res =>
       res.json() as Promise<HistoryItem[]>
     )
@@ -65,7 +65,7 @@ const Listing = () => {
 
 const ListingInput = () => {
   const isEnabled = !!searchParams.secret;
-  const pseudoUserAuth = {
+  const pseudoUserAuth: PostRequestBody = {
     playerName: "test",
     secret: searchParams.secret as string,
   };
@@ -120,13 +120,13 @@ const BridgeComponent = () => {
     const beatsaverDataResponse = await fetch(`https://api.beatsaver.com/hash/${songHash}`);
     const beatsaverData = await beatsaverDataResponse.json() ?? {id: "none"};
     const id = beatsaverData.id as string;
-    const coverUrl = beatsaverData?.versions[0]?.coverUrl;
+    const coverUrl = beatsaverData?.versions[0]?.coverUrl as string ?? "";
 
     const mapData: HistoryItem = {
       bsrCode: id,
       mapHash: songHash,
       mapName: `${songName} (${songAuthorName}) mapped by ${levelAuthorName}`,
-      coverUrl: "https://wallup.net/wp-content/uploads/2016/03/12/305164-nature-cat.jpg",
+      coverUrl,
       timestamp: Date.now()
     };
     fetch("/api/history/push", {
