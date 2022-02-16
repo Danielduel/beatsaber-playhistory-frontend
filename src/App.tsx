@@ -68,7 +68,7 @@ const ListingInput = () => {
   const pseudoUserAuth: PostRequestBody = React.useMemo(() => ({
     playerName: "test",
     secret: searchParams.secret as string,
-  }), [searchParams]);
+  }), []);
   const testData: HistoryItem = React.useMemo(() => ({
     bsrCode: "test",
     mapHash: "test",
@@ -110,7 +110,7 @@ const BridgeComponent = () => {
   const pseudoUserAuth = React.useMemo(() => ({
     playerName: "test",
     secret: searchParams.secret as string,
-  }), [ searchParams ]);
+  }), []);
   const onSongStart: BeatSaber.HTTPStatus.SongStartHandler = useCallback(async (event) => {
     const {beatmap} = event.status;
 
