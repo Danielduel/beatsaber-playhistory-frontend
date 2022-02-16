@@ -125,12 +125,7 @@ const BridgeComponent = () => {
     if (!beatmap) return;
 
     const {songHash, songName, songAuthorName, levelAuthorName} = beatmap;
-    const beatsaverDataResponse = (await fetch(`https://beatsaver.com/api/maps/hash/${songHash}`, {
-      mode: "no-cors",
-      headers: {
-        "Access-Control-Allow-Origin": "*"
-      }
-      }));
+    const beatsaverDataResponse = await fetch(`https://beatsaver.com/api/maps/hash/${songHash}`);
     console.log(beatsaverDataResponse);
     const beatsaverData = (await beatsaverDataResponse.json()) ?? {id: "none"};
     console.log(beatsaverData);
