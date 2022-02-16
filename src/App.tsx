@@ -65,17 +65,17 @@ const Listing = () => {
 
 const ListingInput = () => {
   const isEnabled = !!searchParams.secret;
-  const pseudoUserAuth: PostRequestBody = {
+  const pseudoUserAuth: PostRequestBody = React.useMemo(() => ({
     playerName: "test",
     secret: searchParams.secret as string,
-  };
-  const testData: HistoryItem = {
+  }), [searchParams]);
+  const testData: HistoryItem = React.useMemo(() => ({
     bsrCode: "test",
     mapHash: "test",
     mapName: "test",
     coverUrl: "https://wallup.net/wp-content/uploads/2016/03/12/305164-nature-cat.jpg",
     timestamp: Date.now()
-  };
+  }), []);
   const pushItem = React.useCallback(() => {
     fetch("/api/history/push", {
       method: "POST",
@@ -107,10 +107,10 @@ const ListingInput = () => {
 }
 
 const BridgeComponent = () => {
-  const pseudoUserAuth = {
+  const pseudoUserAuth = React.useMemo(() => ({
     playerName: "test",
     secret: searchParams.secret as string,
-  };
+  }), [ searchParams ]);
   const onSongStart: BeatSaber.HTTPStatus.SongStartHandler = useCallback(async (event) => {
     const {beatmap} = event.status;
 
