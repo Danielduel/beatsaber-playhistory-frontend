@@ -84,7 +84,7 @@ const ListingInput = () => {
         "Content-Type": "application/json"
       }
     })
-  }, [ pseudoUserAuth, testData ]);
+  }, [pseudoUserAuth, testData]);
   const clearAll = React.useCallback(() => {
     fetch("/api/history/clearAll", {
       method: "POST",
@@ -93,7 +93,7 @@ const ListingInput = () => {
         "Content-Type": "application/json"
       }
     });
-  }, [ pseudoUserAuth ]);
+  }, [pseudoUserAuth]);
 
 
   if (!isEnabled) return null;
@@ -117,7 +117,12 @@ const BridgeComponent = () => {
     if (!beatmap) return;
 
     const {songHash, songName, songAuthorName, levelAuthorName} = beatmap;
-    const beatsaverDataResponse = await fetch(`https://api.beatsaver.com/hash/${songHash}`, { mode: "no-cors" });
+    const beatsaverDataResponse = await fetch(`https://api.beatsaver.com/hash/${songHash}`, {
+      mode: "no-cors",
+      headers: {
+        "Access-Control-Allow-Origin": "*"
+      }
+    });
     const beatsaverData = await beatsaverDataResponse.json() ?? {id: "none"};
     const id = beatsaverData.id as string;
     const coverUrl = beatsaverData?.versions[0]?.coverUrl as string ?? "";
@@ -136,7 +141,7 @@ const BridgeComponent = () => {
         "Content-Type": "application/json"
       }
     });
-  }, [ pseudoUserAuth ]);
+  }, [pseudoUserAuth]);
 
   BeatSaber.useHTTPStatusWebsocket({
     address: "ws://localhost:6557/socket",
@@ -144,10 +149,10 @@ const BridgeComponent = () => {
     errorHandler: console.error
   }, [
     {
-     songStart: onSongStart
+      songStart: onSongStart
     }
   ]);
-  
+
   return null;
 };
 
