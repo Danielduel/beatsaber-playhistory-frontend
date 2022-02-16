@@ -130,7 +130,7 @@ const BridgeComponent = () => {
     const beatsaverData = (await beatsaverDataResponse.json()) ?? {id: "none"};
     console.log(beatsaverData);
     const id = beatsaverData.id as string;
-    const coverUrl = beatsaverData?.versions[0]?.coverUrl as string ?? "";
+    const coverUrl = beatsaverData?.versions[0]?.coverURL as string ?? "";
 
     const mapData: HistoryItem = {
       bsrCode: id,
