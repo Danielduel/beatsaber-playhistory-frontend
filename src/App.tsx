@@ -139,7 +139,7 @@ const BridgeComponent = () => {
   }, [ pseudoUserAuth ]);
 
   BeatSaber.useHTTPStatusWebsocket({
-    address: "ws://localhost:2137",
+    address: "ws://localhost:6557/socket",
     debug: false,
     errorHandler: console.error
   }, [
